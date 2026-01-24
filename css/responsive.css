@@ -1,3 +1,4 @@
+
 /*  Theme Responsive Css */
 
 
@@ -397,8 +398,26 @@
     width: 200px;
     padding: 41px 10px 15px 10px;
   }
-  .sticky-header .logo-box{
+  /*.sticky-header .logo-box{
     display: none;
+  }*/
+  /* Show logo on mobile but smaller */
+  .sticky-header .logo-box{
+    display: inline-block;    /* Show it */
+    width: 100px;             /* Smaller width */
+    height: 35px;             /* Smaller height */
+    margin-top: 8px;
+  }
+  
+  .sticky-header .logo-box img{
+    height: 35px;
+    width: auto;
+    display: block;
+  }
+  
+  /* Adjust menu to fit smaller logo */
+  .sticky-header .menu-area{
+    float: right;
   }
   .google-map-section .map-content{
     display: none;
