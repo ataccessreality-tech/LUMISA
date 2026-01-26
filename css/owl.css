@@ -223,7 +223,7 @@
   cursor: pointer;
   display: inline-block;
   font-size: 30px;
-  color: #d0d4d9;
+  color: #625a43;
   background: transparent;
   border: 1px solid #d0d4d9;
   width: 70px;
@@ -237,9 +237,10 @@
   margin: 0px;
 }
 .owl-theme .owl-controls .owl-nav [class*="owl-"]:hover{
-  background: #0d2933;
-  border: 1px solid #0d2933;
-  color: #cda274;
+  /* background: #0d2933; */
+  background: #df6126;
+  border: 1px solid #df6126;
+  color: #ffffff;
 }
 .owl-theme .owl-controls .owl-nav .disabled {
   cursor: default;
