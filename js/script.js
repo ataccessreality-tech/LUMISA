@@ -280,47 +280,74 @@
 	}
 	
 
-	// Date picker
-	function datepicker () {
-	    if ($('#datepicker').length) {
-	        $('#datepicker').datepicker();
-	    };
-	}
+	// Date picker - Prevent past dates for arrival
+function datepicker () {
+    if ($('#datepicker').length) {
+        $('#datepicker').datepicker({
+            minDate: 0,  // Today or future only
+            dateFormat: "dd-mm-yy",
+            onSelect: function(selectedDate) {
+                // When arrival date selected, update departure min date
+                var arrivalDate = $(this).datepicker("getDate");
+                if (arrivalDate) {
+                    var minDeparture = new Date(arrivalDate);
+                    minDeparture.setDate(minDeparture.getDate() + 1);
+                    $('#datepicker_1').datepicker("option", "minDate", minDeparture);
+                }
+            }
+        });
+    };
+}
 
-	// Date picker
-	function datepicker_1 () {
-	    if ($('#datepicker_1').length) {
-	        $('#datepicker_1').datepicker();
-	    };
-	}
+// Date picker - Prevent past dates for departure
+function datepicker_1 () {
+    if ($('#datepicker_1').length) {
+        $('#datepicker_1').datepicker({
+            minDate: 0,  // Today or future only
+            dateFormat: "dd-mm-yy"
+        });
+    };
+}
 
-	// Date picker
-	function datepicker_2 () {
-	    if ($('#datepicker_2').length) {
-	        $('#datepicker_2').datepicker();
-	    };
-	}
+// Date picker - Additional date pickers (if any)
+function datepicker_2 () {
+    if ($('#datepicker_2').length) {
+        $('#datepicker_2').datepicker({
+            minDate: 0,
+            dateFormat: "dd-mm-yy"
+        });
+    };
+}
 
-	// Date picker
-	function datepicker_3 () {
-	    if ($('#datepicker_3').length) {
-	        $('#datepicker_3').datepicker();
-	    };
-	}
+// Date picker
+function datepicker_3 () {
+    if ($('#datepicker_3').length) {
+        $('#datepicker_3').datepicker({
+            minDate: 0,
+            dateFormat: "dd-mm-yy"
+        });
+    };
+}
 
-	// Date picker
-	function datepicker_4 () {
-	    if ($('#datepicker_4').length) {
-	        $('#datepicker_4').datepicker();
-	    };
-	}
+// Date picker
+function datepicker_4 () {
+    if ($('#datepicker_4').length) {
+        $('#datepicker_4').datepicker({
+            minDate: 0,
+            dateFormat: "dd-mm-yy"
+        });
+    };
+}
 
-	// Date picker
-	function datepicker_5 () {
-	    if ($('#datepicker_5').length) {
-	        $('#datepicker_5').datepicker();
-	    };
-	}
+// Date picker
+function datepicker_5 () {
+    if ($('#datepicker_5').length) {
+        $('#datepicker_5').datepicker({
+            minDate: 0,
+            dateFormat: "dd-mm-yy"
+        });
+    };
+}
 
 	//Custom Seclect Box
 	if($('.custom-select-box').length){
