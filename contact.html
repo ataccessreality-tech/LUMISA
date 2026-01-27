@@ -185,8 +185,6 @@
                      id="contact-form"
                      name="contact_form"
                      class="default-form"
-                     action="inc/sendmail.php"
-                     method="post"
                   >
                      <div class="row">
                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
@@ -201,7 +199,7 @@
                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
                            <input
                               type="text"
-                              name="form_phone"
+                              name="form_lastname"
                               value=""
                               placeholder="Last Name"
                               required
@@ -219,7 +217,7 @@
                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
                            <input
                               type="text"
-                              name="form_subject"
+                              name="form_phone"
                               value=""
                               placeholder="Phone number"
                               required
@@ -301,5 +299,13 @@
       <script src="js/isotope.js"></script>
       <script src="js/jquery-ui.js"></script>
       <script src="js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js "></script>
+<script>
+   (function() {
+      emailjs.init({
+        publicKey: "xtA0fd3GRWQgpDvCQ",
+      });
+   })();
+</script>
    </body>
 </html>

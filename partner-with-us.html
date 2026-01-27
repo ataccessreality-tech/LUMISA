@@ -302,8 +302,6 @@
           id="partner-form"
           name="partner_form"
           class="default-form"
-          action="inc/sendmail.php"
-          method="post"
         >
           <div class="row">
             <!-- Name row -->
@@ -430,5 +428,13 @@
       <script src="js/isotope.js"></script>
       <script src="js/jquery-ui.js"></script>
       <script src="js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js "></script>
+<script>
+   (function() {
+      emailjs.init({
+        publicKey: "xtA0fd3GRWQgpDvCQ",
+      });
+   })();
+</script>
    </body>
 </html>
