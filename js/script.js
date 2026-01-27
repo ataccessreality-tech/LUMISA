@@ -429,17 +429,84 @@ function datepicker_5 () {
 	========================================================================== */
 
 	jQuery(document).on('ready', function () {
-		(function ($) {
-			// add your functions
-			customTabProductPageTab ();
-			datepicker ();
-			datepicker_1 ();
-			datepicker_2 ();
-			datepicker_3 ();
-			datepicker_4 ();
-			datepicker_5 ();
-		})(jQuery);
-	});
+   (function ($) {
+      // add your functions
+      customTabProductPageTab ();
+      datepicker ();
+      datepicker_1 ();
+      datepicker_2 ();
+      datepicker_3 ();
+      datepicker_4 ();
+      datepicker_5 ();
+      
+      // Initialize EmailJS forms
+      initEmailJS();
+   })(jQuery);
+});
+
+// EmailJS Configuration for Lumis Hotels
+function initEmailJS() {
+    // Handle contact form submission
+    $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = {
+            from_name: $(this).find('[name="form_name"]').val() + ' ' + $(this).find('[name="form_lastname"]').val(),
+            from_email: $(this).find('[name="form_email"]').val(),
+            phone: $(this).find('[name="form_phone"]').val(),
+            message: $(this).find('[name="form_message"]').val(),
+            form_type: 'Contact Form'
+        };
+        
+        if (!formData.from_name || !formData.from_email || !formData.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        emailjs.send("service_z1q7ase", "template_l9m5wg8", formData)
+            .then(function(response) {
+                alert('Thank you! Your message has been sent to our team at info@lumishotels.com. We will contact you soon.');
+                $('#contact-form')[0].reset();
+            })
+            .catch(function(error) {
+                alert('Sorry, there was an error sending your message. Please try again or contact us directly at info@lumishotels.com');
+                console.log('Email error:', error);
+            });
+    });
+    
+    // Handle partner form submission
+    $('#partner-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = {
+            from_name: $(this).find('[name="first_name"]').val() + ' ' + $(this).find('[name="last_name"]').val(),
+            from_email: $(this).find('[name="form_email"]').val(),
+            phone: $(this).find('[name="mobile"]').val(),
+            message: 'PROPERTY INQUIRY DETAILS:\n\n' +
+                     'Property Status: ' + $(this).find('[name="property_status"]').val() + '\n' +
+                     'City: ' + $(this).find('[name="city"]').val() + '\n' +
+                     'Location: ' + $(this).find('[name="location"]').val() + '\n' +
+                     'Geo Link: ' + $(this).find('[name="geo_link"]').val() + '\n\n' +
+                     'DESCRIPTION:\n' + $(this).find('[name="description"]').val(),
+            form_type: 'Partner Inquiry'
+        };
+        
+        if (!formData.from_name || !formData.from_email || !$(this).find('[name="description"]').val()) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        emailjs.send("service_z1q7ase", "template_l9m5wg8", formData)
+            .then(function(response) {
+                alert('Thank you! Your partnership proposal has been submitted. Our team will contact you within 24-48 hours.');
+                $('#partner-form')[0].reset();
+            })
+            .catch(function(error) {
+                alert('Sorry, there was an error submitting your proposal. Please try again or contact us directly.');
+                console.log('Email error:', error);
+            });
+    });
+}
 
 
 
