@@ -2324,7 +2324,7 @@ button.theme-btn{
 
 ***/
 
-.page-title{
+/* .page-title{
   position: relative;
   width: 100%;
   padding: 87px 0px 77px 0px;
@@ -2339,7 +2339,39 @@ button.theme-btn{
   height: 100%;
   left: 0px;
   top: 0px;
+} */
+
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  /* Desktop: Match exact image ratio (1920x250 = 7.68:1) */
+  aspect-ratio: 1920 / 250;
+  background-size: 100% auto; /* Full width, proportional height */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+.page-title:before{
+  position: absolute;
+  content: '';
+  background: rgba(23, 27, 39, 0.60);
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+
+.page-title .container{
+  position: relative;
+  z-index: 2;
+}
+
 /* Copy contact page's successful formula */
 .page-title.sec-pad.centred {
     background-size: cover !important;

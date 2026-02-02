@@ -110,7 +110,12 @@
 
 
 @media only screen and (max-width: 991px){
-	
+  /* Tablets: Slightly taller ratio for better text visibility */
+  .page-title{
+    aspect-ratio: 16 / 5; /* 3.2:1 ratio - taller than desktop */
+    background-size: cover !important;
+    background-position: center center !important;
+  }
   .filter-section .filter-content .single-item .link .theme-btn {
     padding: 16px 45px 14px 45px;
   }
@@ -285,6 +290,14 @@
 
 @media only screen and (max-width: 768px){
 	
+  .page-title{
+    aspect-ratio: 16 / 6; /* 2.67:1 ratio */
+    min-height: 180px; /* Ensure it doesn't get too short */
+  }
+  .page-title .content-box .title{
+    font-size: 32px;
+    line-height: 40px;
+  }
 	.header-top .left-content{
     display: block;
     text-align: center;
@@ -393,7 +406,17 @@
 }
 
 @media only screen and (max-width: 599px){
-	
+	.page-title{
+    aspect-ratio: 16 / 7; /* 2.28:1 ratio */
+    min-height: 150px;
+  }
+  .page-title .content-box .title{
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .page-title .content-box .bread-crumb li{
+    font-size: 14px;
+  }
   .service-section .tab-title li .single-btn{
     width: 200px;
     padding: 41px 10px 15px 10px;
@@ -441,6 +464,15 @@
 
 @media only screen and (max-width: 499px){
 
+  /* Banner scaling for small phones */
+  .page-title{
+    aspect-ratio: 16 / 7; /* Much taller to fit text */
+    min-height: 120px;
+  }
+  .page-title .content-box .title{
+    font-size: 24px;
+    line-height: 32px;
+  }
 	.header-top .left-content li{
     margin-right: 0px;
   }
@@ -485,7 +517,14 @@
 
 @media only screen and (max-width: 399px){
 
-	
+	.page-title{
+    aspect-ratio: 2 / 1; /* Square-ish for very small phones */
+    min-height: 120px;
+  }
+  .page-title .content-box .title{
+    font-size: 24px;
+    line-height: 32px;
+  }
   .main-slider .tp-title{
     font-size: 70px;
     line-height: 70px;
