@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumis Beach Hotel – Vizag</title>
+
+    <!-- Stylesheets -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <style>
+        /* Gallery-style carousel with 2 rows layout */
+        .property-gallery-carousel {
+            position: relative;
+        }
+
+        /* Each item is a column containing 2 images */
+        .property-gallery-carousel .item {
+            padding: 0 15px;
+        }
+
+        /* Column wrapper to stack 2 images vertically */
+        .column-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;  /* Space between the two images in a column */
+        }
+
+        /* Match gallery inner-box styling exactly */
+        .property-gallery-carousel .inner-box {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;  /* Remove margin since gap handles it */
+        }
+
+        .property-gallery-carousel .image-box {
+            position: relative;
+            display: block;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .property-gallery-carousel .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 5s ease;
+        }
+
+        /* Hover zoom effect like gallery */
+        .property-gallery-carousel .inner-box:hover .image-box img {
+            transform: scale(1.3);
+        }
+
+        /* Overlay styling matching gallery.html exactly */
+        .property-gallery-carousel .overlay-box {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            color: #ffffff;
+            text-align: center;
+            transition: all 700ms ease;
+        }
+
+        .property-gallery-carousel .overlay-box:before {
+            position: absolute;
+            content: '';
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 900ms ease;
+            background-color: rgba(13, 41, 51, 0.80);
+            transform: rotateX(-180deg);
+        }
+
+        .property-gallery-carousel .overlay-inner {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            display: table;
+            vertical-align: middle;
+            padding: 10px 0px;
+        }
+
+        .property-gallery-carousel .overlay-inner .content {
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .property-gallery-carousel .inner-box:hover .overlay-box:before {
+            transform: rotateX(0deg);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .property-gallery-carousel .inner-box:hover .overlay-box {
+            opacity: 1;
+        }
+
+        /* Zoom icon styling */
+        .property-gallery-carousel .overlay-inner .content a {
+            position: relative;
+            display: inline-block;
+            font-size: 15px;
+            color: #df6126;
+            background: #ffffff;
+            width: 45px;
+            height: 45px;
+            line-height: 46px;
+            text-align: center;
+            margin: 0px 3px;
+        }
+
+        .property-gallery-carousel .overlay-inner .content a:hover {
+            background: #df6126;
+            color: #ffffff;
+        }
+
+        /* Carousel Navigation Arrows */
+        .property-gallery-carousel .owl-nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .property-gallery-carousel .owl-nav button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: #0d2933;
+            color: #ffffff;
+            border-radius: 50%;
+            margin: 0px 10px;
+            font-size: 18px;
+            transition: all 500ms ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .property-gallery-carousel .owl-nav button:hover {
+            background: #df6126;
+            color: #ffffff;
+        }
+
+        /* Dot indicators */
+        .property-gallery-carousel .owl-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .property-gallery-carousel .owl-dot {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .property-gallery-carousel .owl-dot span {
+            width: 12px;
+            height: 12px;
+            background: #e1e6eb;
+            border-radius: 50%;
+            display: block;
+            transition: all 500ms ease;
+        }
+
+        .property-gallery-carousel .owl-dot.active span {
+            background: #df6126;
+        }
+    </style>
+<base target="_self">
+</head>
+
+<body class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="preloader"></div>
+
+    <!-- =================  HEADER (Same as bengaluru.html)  ================= -->
+    <header class="main-header header-style-two">
+        <div class="header-bottom">
+            <div class="container clearfix">
+                <figure class="logo-box">
+                    <a href="index.html" target="_self"><img src="images/logo2.png" alt="" /></a>
+                </figure>
+                <div class="menu-area">
+                    <nav class="main-menu navbar-expand-lg">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="index.html"  target="_self">Home</a></li>
+                                <li class="dropdown current">
+                                    <a href="#">Our Hotels</a>
+                                    <ul>
+                                        <li class="current"><a href="hyderabad.html"  target="_self">Hyderabad</a></li>
+                                        <li ><a href="bengaluru.html"  target="_self">Bengaluru</a></li>
+                                        <li><a href="vishakapatanam.html">Vizag</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.html"  target="_self">About Us</a></li>
+                                <li><a href="gallery.html"  target="_self">Gallery</a></li>
+                                <li><a href="partner-with-us.html"  target="_self">Partner with us</a></li>
+                                <li><a href="contact.html"  target="_self">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="link">
+                        <a href="index.html#filter-target" class="theme-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- sticky header -->
+        <div class="sticky-header">
+            <div class="container clearfix">
+                <figure class="logo-box">
+                    <a href="index.html" target="_self"><img src="images/sticky_header_logo.png" alt="" /></a>
+                </figure>
+                <div class="menu-area">
+                    <nav class="main-menu navbar-expand-lg">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="index.html"  target="_self">Home</a></li>
+                                <li class="dropdown current">
+                                    <a href="#">Our Hotels</a>
+                                    <ul>
+                                        <li class="current"><a href="hyderabad.html"  target="_self">Hyderabad</a></li>
+                                        <li><a href="bengaluru.html"  target="_self">Bengaluru</a></li>
+                                        <li><a href="vishakapatanam.html">Vizag</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.html"  target="_self">About Us</a></li>
+                                <li><a href="gallery.html"  target="_self">Gallery</a></li>
+                                <li><a href="partner-with-us.html"  target="_self">Partner with us</a></li>
+                                <li><a href="contact.html"  target="_self">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- page-title -->
+    <section class="page-title centred" style="background-image: url(images/Vizag-beach/5.jpg); background-position: 70% center;">
+        <div class="container">
+            <div class="content-box">
+                <div class="title">Property Gallery</div>
+                <ul class="bread-crumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vishakapatanam.html">Vizag</a></li>
+                    <li>Property Gallery</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+    <!-- property-gallery-section -->
+    <section class="gallery-section gallery-page sec-pad-2">
+        <div class="container">
+            <div class="top-title">
+                <div class="sec-title">Explore Lumis Beach Hotel Vizag</div>
+                <div class="title-text">
+                    A serene coastal retreat in Pandurangapuram — where thoughtful design meets the calming rhythm of the sea.
+                </div>
+            </div>
+
+            <!-- Owl Carousel Gallery -->
+            <div class="property-gallery-carousel owl-carousel owl-theme">
+
+                <div class="item">
+                    <div class="column-pair">
+                        <div class="inner-box overlay-style-one">
+                            <figure class="image-box">
+                                <img src="images/Vizag-beach/1.jpg" alt="Classic Room" />
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="images/Vizag-beach/1.jpg" class="lightbox-image" data-fancybox="property-gallery">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="inner-box overlay-style-one">
+                            <figure class="image-box">
+                                <img src="images/Vizag-beach/2.jpg" alt="Classic Room Interior" />
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="images/Vizag-beach/2.jpg" class="lightbox-image" data-fancybox="property-gallery">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="column-pair">
+                        <div class="inner-box overlay-style-one">
+                            <figure class="image-box">
+                                <img src="images/Vizag-beach/3.jpg" alt="Premium Beach View" />
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="images/Vizag-beach/3.jpg" class="lightbox-image" data-fancybox="property-gallery">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="inner-box overlay-style-one">
+                            <figure class="image-box">
+                                <img src="images/Vizag-beach/4.jpg" alt="Premium Beach Suite" />
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="images/Vizag-beach/4.jpg" class="lightbox-image" data-fancybox="property-gallery">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="column-pair">
+                        <div class="inner-box overlay-style-one">
+                            <figure class="image-box">
+                                <img src="images/Vizag-beach/5.jpg" alt="Bay of Bengal View" />
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="images/Vizag-beach/5.jpg" class="lightbox-image" data-fancybox="property-gallery">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Back to Hotel Page Button -->
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="vishakapatanam.html" class="theme-btn-two" target="_self">Back to Vizag</a>
+            </div>
+        </div>
+    </section>
+    <!-- property-gallery-section end -->
+
+    <!-- footer inject -->
+    <div id="footer-wrap"></div>
+    <script>
+        fetch("footer.html")
+            .then((r) => r.text())
+            .then((html) => document.getElementById("footer-wrap").innerHTML = html);
+    </script>
+
+    <!-- scroll-top -->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="fa fa-long-arrow-up"></span>
+    </button>
+
+    <!-- scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="js/html5lightbox/html5lightbox.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Property Gallery Carousel Script - 3 Columns x 2 Rows -->
+    <script>
+    $(document).ready(function(){
+        $('.property-gallery-carousel').owlCarousel({
+            loop: true,
+            margin: 30,              // Space between columns
+            nav: true,               // Show arrows
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            dots: true,              // Dot indicators
+            slideBy: 1,              // Slide 1 column at a time (2 images)
+            autoplay: true,          // Auto-scroll
+            autoplayTimeout: 2000,   // Every 4 seconds
+            autoplayHoverPause: true,
+            smartSpeed: 800,
+            responsive: {
+                0: {
+                    items: 1         // Mobile: 1 column (2 images visible)
+                },
+                576: {
+                    items: 2         // Tablet: 2 columns (4 images visible)
+                },
+                992: {
+                    items: 3         // Desktop: 3 columns (6 images visible - matches your screenshot)
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
